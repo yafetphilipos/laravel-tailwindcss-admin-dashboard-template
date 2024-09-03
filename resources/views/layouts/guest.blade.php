@@ -50,6 +50,7 @@
                     </div>
 
                     <div class="w-full max-w-3xl mx-auto px-4 py-8">
+                        <h1>This is the guest</h1>
                         {{ $slot }}
                     </div>
 

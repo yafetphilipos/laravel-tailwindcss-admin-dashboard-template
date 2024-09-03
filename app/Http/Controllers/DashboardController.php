@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DataFeed;
 
+
 class DashboardController extends Controller
 {
     public function index()
@@ -21,7 +22,8 @@ class DashboardController extends Controller
      */
     public function analytics()
     {
-        return view('pages/dashboard/analytics');
+        // return view('pages/dashboard/analytics');
+        return view('livewire.add-product')->layout('layouts.app');;
     }
 
     /**

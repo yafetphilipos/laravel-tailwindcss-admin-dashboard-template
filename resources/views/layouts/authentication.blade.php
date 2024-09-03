@@ -52,6 +52,7 @@
                         </div>
 
                         <div class="max-w-sm mx-auto w-full px-4 py-8">
+                            <h1>This is the auth</h1>
                             {{ $slot }}
                         </div>
 

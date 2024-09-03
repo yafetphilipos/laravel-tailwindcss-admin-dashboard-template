@@ -63,4 +63,4 @@
 
         @livewireScriptConfig
     </body>
-</html>
+</html>tials

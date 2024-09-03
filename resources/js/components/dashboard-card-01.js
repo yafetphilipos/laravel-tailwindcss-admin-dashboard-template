@@ -13,6 +13,7 @@ Chart.register(LineController, LineElement, Filler, PointElement, LinearScale, T
 // A chart built with Chart.js 3
 // https://www.chartjs.org/
 const dashboardCard01 = () => {
+  
   const ctx = document.getElementById('dashboard-card-01');
   if (!ctx) return;
 
@@ -33,19 +34,24 @@ const dashboardCard01 = () => {
     dark: '#4B5563'
   };  
 
-  fetch('/json-data-feed?datatype=1')
-    .then(a => {
-      return a.json();
-    })
-    .then(result => {
-
-      const dataset1 = result.data.slice(0, 26);
-      const dataset2 = result.data.slice(26, 52);
-
+  // fetch('/json-data-feed?datatype=1')
+  //   .then(a => {
+  //     return a.json();
+  //   })
+  //   .then(result => {
+      const data = [732,610,610,504,504,504,349,349,504,342, 504, 610, 391, 192, 154, 273, 191, 191, 126, 263, 349, 252, 423, 622, 470, 532, 532, 532, 532, 404, 404, 314, 314, 314, 314, 314, 234, 314, 234, 234, 314, 314, 314, 388, 314, 202, 202, 202, 202, 314, 720, 642]
+      const labels = ["12-01-2020","01-01-2021","02-01-2021","03-01-2021","04-01-2021","05-01-2021","06-01-2021","07-01-2021","08-01-2021","09-01-2021", "10-01-2021", "11-01-2021", "12-01-2021", "01-01-2022", "02-01-2022", "03-01-2022", "04-01-2022", "05-01-2022", "06-01-2022", "07-01-2022", "08-01-2022", "09-01-2022", "10-01-2022", "11-01-2022", "12-01-2022", "01-01-2023"]
+      const dataset1 = data.slice(0, 26);
+      const dataset2 = data.slice(26, 52);
+      // console.log(result.data)
+      // const dataset1 = [732, 610, 610, 504, 504, 504, 349, 349, 504, 342,732, 610, 610, 504, 504, 504, 349, 349, 504, 342,]
+      // const dataset2 = [123, 323, 934, 123, 345, 123, 1243, 22, 504, 342,123, 323, 934, 123, 345, 123, 1243, 22, 504, 342]
+      // console.log(dataset1);  //  732, 610, 610, 504, 504, 504, 349, 349, 504, 342,
+      // console.log(dataset1); //  732, 610, 610, 504, 504, 504, 349, 349, 504, 342
       const chart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: result.labels,
+          labels: labels,
           datasets: [
             // Indigo line
             {
@@ -73,12 +79,12 @@ const dashboardCard01 = () => {
             // Gray line
             {
               data: dataset2,
-              borderColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
+              // borderColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 3,
-              pointBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
-              pointHoverBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
+              // pointBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
+              // pointHoverBackgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.gray[500])}, 0.25)`,
               pointBorderWidth: 0,
               pointHoverBorderWidth: 0,
               clip: 20,
@@ -139,7 +145,7 @@ const dashboardCard01 = () => {
         }
         chart.update('none');
       });      
-    });
+    // });
 };
 
 export default dashboardCard01;
